@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication4.Models.Couverture>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Plafond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Franchise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFormuleNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGarantieNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plafond)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Franchise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFormuleNavigation.IdFormule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGarantieNavigation.IdGarantie)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

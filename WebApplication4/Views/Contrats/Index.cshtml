@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication4.Models.Contrat>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSouscription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEcheance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClientNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFormuleNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSouscription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEcheance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClientNavigation.IdClient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFormuleNavigation.IdFormule)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdContrat">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdContrat">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdContrat">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
